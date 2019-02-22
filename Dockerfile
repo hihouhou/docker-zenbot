@@ -9,7 +9,7 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV ZENBOT_VERSION v4.1.1
+ENV ZENBOT_VERSION v4.1.2
 
 # Update & install packages for fetching zenbot
 RUN apt-get update && \

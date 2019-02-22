@@ -13,18 +13,20 @@ ENV ZENBOT_VERSION v4.1.1
 
 # Update & install packages for fetching zenbot
 RUN apt-get update && \
-    apt-get install -y git curl gnupg2
+    apt-get install -y git wget curl gnupg2
 
 #fetch last version of nodejs
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 # Update & install packages for installing zenbot
 RUN apt-get update && \
     apt-get install -y git nodejs node-gyp
 
 # Install zenbot3
-RUN git clone https://github.com/carlos8f/zenbot.git && \
+RUN mkdir zenbot && \
     cd zenbot && \
+    wget https://api.github.com/repos/carlos8f/zenbot/tarball/${ZENBOT_VERSION} -O ${ZENBOT_VERSION}.tar.gz && \
+    tar xf  ${ZENBOT_VERSION}.tar.gz --strip-components=1 && \
     npm install --unsafe-perm && \
     npm link
 

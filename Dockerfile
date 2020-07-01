@@ -16,11 +16,11 @@ RUN apt-get update && \
     apt-get install -y git wget curl gnupg2
 
 #fetch last version of nodejs
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 # Update & install packages for installing zenbot
 RUN apt-get update && \
-    apt-get install -y git nodejs node-gyp
+    apt-get install -y git nodejs make gcc g++
 
 # Install zenbot3
 RUN mkdir zenbot && \

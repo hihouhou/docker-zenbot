@@ -9,7 +9,7 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV ZENBOT_VERSION v4.1.2
+ENV ZENBOT_VERSION=v4.1.2
 
 # Update & install packages for fetching zenbot
 RUN apt-get update && \
